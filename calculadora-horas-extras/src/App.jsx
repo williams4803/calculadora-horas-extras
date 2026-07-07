@@ -47,7 +47,7 @@ function App() {
     }
 
     const valorHora = salario / jornadaMensal;
-    const valorHorasExtras = valorHora * horasExtras * (percentual / 100);
+    const valorHorasExtras = valorHora * (1 + percentual / 100) * horasExtras;
     const total = valorHorasExtras;
 
     return {
