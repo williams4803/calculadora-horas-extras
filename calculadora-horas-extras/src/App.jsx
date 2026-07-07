@@ -118,10 +118,12 @@ function App() {
 
     const novoCalculo = {
       id: Date.now(),
+      timestamp: new Date().toLocaleString('pt-BR'),
       salario: parseFloat(formData.salario),
       jornadaMensal: parseFloat(formData.jornadaMensal),
       horasExtras: parseFloat(formData.horasExtras),
       percentual: parseFloat(formData.percentual),
+      valorHora: result.valorHora,
       total: result.total,
     };
 
@@ -262,9 +264,18 @@ function App() {
           </div>
           <ul>
             {history.map((item) => (
-              <li key={item.id}>
-                <span>{Number(item.horasExtras).toFixed(2)}h a {Number(item.percentual)}% • R$ {item.total.toFixed(2)}</span>
-                <small>{Number(item.jornadaMensal)}h/mês</small>
+              <li key={item.id} className="history-item">
+                <div className="history-info">
+                  <span className="history-title">
+                    <strong>{Number(item.horasExtras).toFixed(2)}h</strong> extras a <strong>{Number(item.percentual)}%</strong>
+                  </span>
+                  <span className="history-time">{item.timestamp}</span>
+                </div>
+                <div className="history-details">
+                  <span>Salário: R$ {Number(item.salario).toFixed(2)}</span>
+                  <span>Hora: R$ {Number(item.valorHora).toFixed(2)}</span>
+                  <span>Total: <strong>R$ {Number(item.total).toFixed(2)}</strong></span>
+                </div>
               </li>
             ))}
           </ul>
