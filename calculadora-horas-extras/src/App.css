@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef4ff 0%, #f7f9fc 100%);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f2937;
+}
+
+.app {
+  width: min(820px, calc(100% - 32px));
+  margin: 48px auto;
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+}
+
+h1 {
+  color: #0d47a1;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 24px;
+  color: #4b5563;
+  text-align: center;
+}
+
+.calculator-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+}
+
+label span {
+  color: #374151;
+}
+
+input,
+select {
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #93c5fd;
+  border-color: #3b82f6;
+}
+
+button {
+  grid-column: 1 / -1;
+  padding: 14px 24px;
+  border: none;
+  background: #0d47a1;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #1565c0;
+}
+
+.secondary-button {
+  grid-column: auto;
+  padding: 10px 14px;
+  background: #6b7280;
+  font-size: 14px;
+}
+
+.secondary-button:hover {
+  background: #4b5563;
+}
+
+.summary-card,
+.history-card {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #dbeafe;
+}
+
+.summary-card h2,
+.history-card h2 {
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.summary-card p {
+  text-align: left;
+  margin-bottom: 8px;
+  color: #334155;
+}
+
+.total {
+  font-size: 18px;
+  color: #0f766e;
+}
+
+.history-card ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.history-card li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.history-card small {
+  display: block;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .calculator-form {
+    grid-template-columns: 1fr;
+  }
+
+  .app {
+    padding: 24px;
+  }
+}
